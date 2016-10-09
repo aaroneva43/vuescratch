@@ -1,15 +1,15 @@
-Vue.component('my-component', {
-        template: '<div>{{msg}} {{privateMsg}}</div>',
-        props: {
-            msg: String
-        },
+document.addEventListener('DOMContentLoaded', function() {
+    var Example = Vue.extend({
+        template: '<div>a: {{ a }}, b: {{ b }}</div>',
         data: function() {
             return {
-                privateMsg: 'component!'
+                a : 1,
+                b : 2
             }
         }
-    })
+    });
+    Vue.component('example', Example);
 
-document.addEventListener('DOMContentLoaded', function() {
-    
+    eee = new Example({el:'#eee'})
+
 }, false);
