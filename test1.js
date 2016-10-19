@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
                       '<template v-for="item in items" track-by="_uid">'+
                           '<a class="tab {{items.length-1 == $index ? \'tab-last\' : \'\'}}">{{ $index }} - {{ item.message }}</a>'+ 
                       '</template>'+
+                      '<input type="checkbox" v-model="t"/>'+
                   '<div>'
     });
     
@@ -26,7 +27,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         width: '500px'
                     }
                 },
-                id: 'ddd'
+                id: 'ddd',
+                tmp: true
             }
 
         },
@@ -39,6 +41,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 };
 
             })()
+        },
+        computed: {
+            t: {
+                get: function() {
+                    return this.tmp;
+                },
+                set: function(value) {
+                    this.tmp = value;
+                }
+            }
         }
     });
     /*=================================================*/
